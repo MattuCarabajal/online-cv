@@ -1,9 +1,9 @@
-from src.libs.csv import csv_to_list_dict
+from libs.csv import csv_to_list_dict
 from datetime import datetime
 from flask import Markup
 
 
-def get_jobs( src = 'src/' ):
+def get_jobs( src = '' ):
     jobs = csv_to_list_dict( f'{ src }data_vault/jobs.csv' )
     jobs_descriptions_list = csv_to_list_dict( f'{ src }data_vault/jobs_descriptions.csv' )
 
@@ -53,7 +53,7 @@ def delta_time( begging, top ):
     
     return years, months
 
-def get_references( src = 'src/' ):
+def get_references( src = '' ):
     references = {
         'h_m_dr_hector_cura' : csv_to_list_dict( f'{ src }data_vault/Municipal Hospital, Dr. Hector M. Cura.csv' ),
         'globant'            : csv_to_list_dict( f'{ src }data_vault/Globant.csv' ),

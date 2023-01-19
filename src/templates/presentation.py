@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from src.libs.csv import csv_to_list_dict
+from libs.csv import csv_to_list_dict
 
 
 def get_date() -> str:
@@ -58,7 +58,7 @@ def transform_for_html_list(data: dict):
 
     return final
 
-def get_me_data(src='src/') -> dict:
+def get_me_data(src='') -> dict:
     me_aux = csv_to_list_dict( f'{src}data_vault/me.csv' )[ 0 ]
 
     me = {
@@ -68,7 +68,7 @@ def get_me_data(src='src/') -> dict:
 
     return transform_for_html_list(me)
 
-def get_about_me_data(src='src/') -> dict:
+def get_about_me_data(src='') -> dict:
     about_me = csv_to_list_dict( f'{src}data_vault/about_me.csv' )[ 0 ]
 
     return transform_for_html_list(about_me)

@@ -1,10 +1,10 @@
-from src.libs.csv import csv_to_list_dict
+from libs.csv import csv_to_list_dict
 from datetime import datetime
 import json
 import ast
 
 
-def get_languages_data( src = 'src/' ):
+def get_languages_data( src = '' ):
     languages = csv_to_list_dict( f'{src}data_vault/languages.csv' )
     for language in languages:
         language[ 'currently' ] = ast.literal_eval( language[ 'currently' ] )

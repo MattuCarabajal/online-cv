@@ -1,9 +1,9 @@
 from json import dumps
 
-from src.libs.xlsx import xlsx_to_dict
+from libs.xlsx import xlsx_to_dict
 
 
-def get_skills_data( src = 'src/' ):
+def get_skills_data( src = '' ):
     skills = xlsx_to_dict( f'{ src }data_vault/skills.xlsx' )
     return skills
 
