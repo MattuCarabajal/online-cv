@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div id="Education_container" class="container-fluid">
+    <!-- Title -->
+    <div class="section_title">
+        <h1>Education</h1>
+    </div>
+    <div class="education_gallery overflow-elements-vertical">
+        {% for institution in institutions %}
+            <article class="card" style="--card_x: '{{ institution[ 'name' ] }}';">
+                <div class="institution_name">
+                    <span>{{ institution[ 'name' ] }}</span>
+                </div>
+                <div class="institution_year institution_data">
+                    <span class="level_type">Year:&nbsp;</span>
+                    <span>{{ institution[ 'year' ] }}</span>
+                </div>
+                <div class="institution_title institution_data">
+                    <span class="level_type">Title:&nbsp;</span>
+                    <span>{{ institution[ 'title' ] }}</span>
+                </div>
+                {% if institution[ 'average' ] != "" %}
+                    <div class="institution_average institution_data">
+                        <span class="level_type">Written:&nbsp;</span>
+                        <span>{{ institution[ 'average' ] }} </span>
+                    </div>
+                {% endif %}
+            </article>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

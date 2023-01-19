@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<body id="page-top" class="full">
+    <nav id="Menu" class="navigation position-fixed">
+        <ul>
+            <li class="list">
+                <button class="button_box" onclick="skillsIn()">
+                    <div class="button_distribution">
+                        <span id="Left_bracket" class="bracket left">{</span>
+                        <span id="skills_button">Skills</span>
+                        <span id="Right_bracket" class="bracket right">}</span>
+                    </div>
+                    <div class="icon">
+                        <i class="material-icons">engineering</i>
+                    </div>
+                </button>
+            </li>
+            <li class="list">
+                <button class="button_box" onclick="experienceIn()">
+                    <div class="button_distribution">
+                        <span id="Left_bracket" class="bracket left">{</span>
+                        <span id="experience_button">Experience</span>
+                        <span id="Right_bracket" class="bracket right">}</span>
+                    </div>
+                    <div class="icon">
+                        <i class="material-icons">hiking</i>
+                    </div>
+                </button>
+            </li>
+            <li class="list">
+                <button class="button_box" onclick="languagesIn()">
+                    <div class="button_distribution">
+                        <span id="Left_bracket" class="bracket left">{</span>
+                        <span id="languages_button">Languages</span>
+                        <span id="Right_bracket" class="bracket right">}</span>
+                    </div>
+                    <div class="icon">
+                        <i class="material-icons">record_voice_over</i>
+                    </div>
+                </button>
+            </li>
+            <li class="list">
+                <button class="button_box" onclick="educationIn()">
+                    <div class="button_distribution">
+                        <span id="Left_bracket" class="bracket left">{</span>
+                        <span id="education_button">Education</span>
+                        <span id="Right_bracket" class="bracket right">}</span>
+                    </div>
+                    <div class="icon">
+                        <i class="material-icons">psychology</i>
+                    </div>
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <nav id="Menu_back" class="navigation position-fixed">
+        <ul>
+            <li class="list">
+                <button id="Back_button" class="button_box">
+                    <div class="button_distribution">
+                        <span id="Left_bracket" class="bracket left">{</span>
+                        <span id="skills_button">Back</span>
+                        <span id="Right_bracket" class="bracket right">}</span>
+                    </div>
+                    <div class="icon">
+                        <i class="material-icons">arrow_back_ios_new</i>
+                    </div>
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <!-- Presentation -->
+    <section id="Presentation" class="full_section">
+        <div class="visitor_page_counter">
+            <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+            <div class="elfsight-app-b291065d-6c54-46f4-a6e0-83f3d49553d3"></div>
+        </div>
+        <iframe id="Presentation_iframe" class="embed-responsive-item" src="{{ url_for( 'presentation' ) }}"></iframe>
+    </section>
+    
+    <!-- Experience -->
+    <section id="Experience" class="full_section fs_left">
+        <iframe id="Experience_iframe" class="embed-responsive-item" src="{{ url_for( 'experience' ) }}"></iframe>
+    </section>
+
+    <!-- Knowledge and Skills -->
+    <section id="Skills" class="fs_left">
+        <iframe id="skills_iframe" class="embed-responsive-item" src="{{ url_for( 'skills' ) }}"></iframe>
+    </section>
+
+    <!-- Education -->
+    <section id="Education" class="full_section fs_right">
+        <iframe id="Education_iframe" class="embed-responsive-item" src="{{ url_for( 'education' ) }}"></iframe>
+    </section>
+
+    <!-- Languages -->
+    <section id="Languages" class="full_section fs_right">
+        <iframe id="Languages_iframe" class="embed-responsive-item" src="{{ url_for( 'languages' ) }}"></iframe>
+    </section>
+</body>
+
+{% endblock %}

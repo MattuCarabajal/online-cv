@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div id="Skills_container" class="container-fluid">
+    <!-- Title -->
+    <div class="section_title">
+        <h1>Skills</h1>
+    </div>
+    <div class="skills_gallery overflow-elements-vertical">
+        {% for skill_section in skills.keys() %}
+            <article class="card" style="--card_x: '{{ skill_section }}';">
+                <div class="title">
+                    <span>{{ skill_section }}</span>
+                </div>
+                <div class="skills_list overflow-elements-vertical">
+                    {% for skill in skills[ skill_section ] %}
+                        <div class="skill">
+                            <span class="skill_name">{{ skill[ 'name' ] }}</span>
+                            <div class="skill_level">
+                                <div class="progress" style="--percentage: {{ skill[ 'level' ] }}%">
+                                  <div class="progress-bar"></div>
+                                </div>
+                                <!-- <div style="--progress: {{ skill[ 'level' ] }}%" class="RadialProgress" role="progressbar">
+                                    <div style="--progress: 100%" class="RadialProgress_inside" role="progressbar"></div>
+                                </div> -->
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

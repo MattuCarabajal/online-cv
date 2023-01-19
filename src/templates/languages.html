@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div id="Languages_container" class="container-fluid">
+    <!-- Title -->
+    <div class="section_title">
+        <h1>Languages</h1>
+    </div>
+    <div class="languages_gallery overflow-elements-vertical">
+        {% for language in languages %}
+            <article class="card" style="--card_x: '{{ language[ 'name' ] }}';">
+                <div class="language_name">
+                    <span>{{ language[ 'name' ] }}</span>
+                    {% if language[ 'currently' ] == True %}
+                        <span class="card-text bold">(Currently studying)</span>
+                    {% endif %}
+                </div>
+                <div class="language_flag">
+                    <img src="{{ language[ 'img_src' ] }}" class="flag" alt="{{ language[ 'name' ] }}">
+                </div>
+                <div class="oral_level levels">
+                    <span class="level_type">Oral:&nbsp;</span>
+                    <span>{{ language[ 'oral' ] }}</span>
+                </div>
+                <div class="reading_level levels">
+                    <span class="level_type">Reading:&nbsp;</span>
+                    <span>{{ language[ 'reading' ] }}</span>
+                </div>
+                <div class="written_level levels">
+                    <span class="level_type">Written:&nbsp;</span>
+                    <span>{{ language[ 'written' ] }} </span>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

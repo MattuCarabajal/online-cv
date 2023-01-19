@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div id="Jobs_container" class="container-fluid">
+    <!-- Title -->
+    <div class="section_title">
+        <h1>Experience</h1>
+    </div>
+    <div class="jobs_gallery overflow-elements-vertical">
+        {% for job in jobs %}
+            <div class="standard_card_size">
+                <article id="{{ job[ 'name' ] }}" class="card" style="--card_x: '{{ job[ 'name' ] }}';">
+                    <a class="company_logo" href="{{ job[ 'url' ] }}" target="_blank">
+                        <img src="{{ job[ 'img_src' ] }}" class="img-fluid rounded-start" alt="{{ job[ 'name' ] }}">
+                    </a>
+                    <div class="company_resume hide">
+                        <p id="Time_span" class="card-text bold">{{ job[ 'time_span' ] | safe }}</p>
+                        <p id="Position" class="card-text bold">{{ job[ 'position' ]|safe }}</p>
+                        <p id="City" class="card-text bold">{{ job[ 'city' ] }}</p>
+                    </div>
+                    <div class="company_description hide overflow-elements-vertical">
+                            {% for project in job[ 'projects' ] %}
+                                <div id="{{ project[ 'name' ] }}">
+                                    <p class="project_name">{{ project[ 'name' ] }}</p>
+                                    <span>
+                                        {{ project[ 'description' ] }}
+                                    </span>
+                                </div>
+                            {% endfor %}
+                    </div>
+                    <div class="company_references hide" name="{{ job[ 'name' ] }}">
+                            {% if references[ job[ 'name' ] ] | length > 0 %}
+                                {% set show_references = job[ 'name' ] %}
+                                <button type="button" onclick="show_references( '{{ show_references }}' )">References</button>
+                                <div class="references" name="{{ job[ 'name' ] }}">
+                                    {% for reference in references[ job[ 'name' ] ] %}
+                                        <span>
+                                            <p>Name: {{ reference[ 'name' ] }}</p>
+                                            <p>Job: {{ reference[ 'job' ] }}</p>
+                                            <p>Relation: {{ reference[ 'relation' ] }}</p>
+                                            <p>Cellphone: {{ reference[ 'cellphone' ] }}</p>
+                                            <p>Worked together: {{ reference[ 'delta' ] }}</p>
+                                        </span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                    </div>
+                </article>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

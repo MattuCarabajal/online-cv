@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<body class="full_ide">
+    <section id="IDE" class="ide">
+        <div class="tabs overflow-elements-horizontal">
+            <div id="Tab_Presentation"" class="container tab bg_emphasis">
+                <img id="Presentation_icon" src="{{ ide_data['hello_world'][ 'language_img' ] }}" class="rounded mx-auto d-block icon not_selectable python_icon" alt="{{ ide_data['hello_world'][ 'language' ] }}" onclick="presentation()">
+                <div id="Presentation_name" class="container file_name" onclick="presentation()">
+                    <span class="text not_selectable">
+                        {{ ide_data['hello_world'][ 'file_name' ] }}
+                    </span>
+                </div>
+                <div class="close">
+                    <button type="button" class="btn-close" aria-label="Close" onclick="close_tabs()"></button>
+                </div>
+            </div>
+            <div id="Tab_Goals" class="container tab bg_not_emphasis">
+                <img src="{{ ide_data['about_me'][ 'language_img' ] }}" class="rounded mx-auto d-block icon not_selectable python_icon" alt="{{ ide_data['about_me'][ 'language' ] }}" onclick="goals()">
+                <div id="Presentation_name" class="container file_name" onclick="goals()">
+                    <span class="text not_selectable">
+                        {{ ide_data['about_me'][ 'file_name' ] }}
+                    </span>
+                </div>
+                <div class="close">
+                    <button type="button" class="btn-close" aria-label="Close" onclick="close_tabs()"></button>
+                </div>
+            </div>
+        </div>
+        <div class="ide_content">
+            <div id="Presentation" class="ide_page">
+                <div class="rows overflow-elements-vertical">
+                    {% for key in me.keys() %}
+                        {% if 'src' not in key and 'phrase' not in key %}
+                            <div class="container row">
+                                <span class="row_number not_selectable">{{ me[key][ 'row_number' ] }}</span>
+                                <span class="row_text string">{{ me[key][ 'row_info' ]|safe }}</span>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="container row">
+                        <span class="row_number not_selectable text">{{ me['phrase'][ 'row_number' ] }}</span>
+                        <span class="row_text string text">{{ me['phrase'][ 'row_info' ]|safe }}</span>
+                    </div>
+                    <div id="Profile_photo">
+                        <img src="{{ me['img_src'][ 'row_info' ] }}" class="profile_photo" alt="{{ me['name'][ 'row_info' ] }}">
+                    </div>
+                </div>
+                <div class="footer bg_emphasis not_selectable">
+                    <span>{{ ide_data['hello_world'][ 'branch' ] }}</span>
+                    <span></span>
+                    <span>{{ ide_data['hello_world'][ 'encoding' ] }}</span>
+                    <span>{{ ide_data['hello_world'][ 'language' ] }}</span>
+                    <span>{{ ide_data['hello_world'][ 'language_version' ] }}</span>
+                </div>
+            </div>
+            <div id="Goals" class="ide_page">
+                <div class="rows overflow-elements-vertical">
+                    {% for key in about_me.keys() %}
+                        {% if 'src' not in key and 'phrase' not in key %}
+                            <div class="container row">
+                                <span class="row_number not_selectable">{{ about_me[key][ 'row_number' ] }}</span>
+                                <span class="row_text string">{{ about_me[key][ 'row_info' ]|safe }}</span>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="footer bg_emphasis not_selectable">
+                    <span>{{ ide_data['about_me'][ 'branch' ] }}</span>
+                    <span></span>
+                    <span>{{ ide_data['about_me'][ 'encoding' ] }}</span>
+                    <span>{{ ide_data['about_me'][ 'language' ] }}</span>
+                    <span>{{ ide_data['about_me'][ 'language_version' ] }}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+{% endblock %}
