@@ -1,10 +1,15 @@
 from json import dumps
 
-from libs.xlsx import xlsx_to_dict
+from src.libs.xlsx import xlsx_to_dict
 
 
-def get_skills_data( src = '' ):
-    skills = xlsx_to_dict( f'{ src }data_vault/skills.xlsx' )
+def get_skills_data():
+    skills_file_path = 'data_vault/skills.xlsx'
+    try:
+        skills = xlsx_to_dict(f'src/{skills_file_path}')
+    except FileNotFoundError:
+        skills = xlsx_to_dict(skills_file_path)
+
     return skills
 
 
@@ -15,9 +20,9 @@ Basic   Basic/Intermediate	Intermediate	Intermediate/Advance    Advance
 
 
 if __name__ == '__main__':
-    print( dumps( get_skills_data( src = 'src/' ), indent = 4, ensure_ascii=False ) )
+    print( dumps( get_skills_data(), indent = 4, ensure_ascii=False ) )
 
-    skills = get_skills_data( src = 'src/' )
+    skills = get_skills_data()
     for skill_section in skills.keys():
         print(f'skill_section: { skill_section }')
         for skill in skills[ skill_section ]:

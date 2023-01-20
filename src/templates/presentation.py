@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from libs.csv import csv_to_list_dict
+from src.libs.csv import csv_to_list_dict
 
 
 def get_date() -> str:
@@ -58,8 +58,12 @@ def transform_for_html_list(data: dict):
 
     return final
 
-def get_me_data(src='') -> dict:
-    me_aux = csv_to_list_dict( f'{src}data_vault/me.csv' )[ 0 ]
+def get_me_data() -> dict:
+    me_file_path = 'data_vault/me.csv'
+    try:
+        me_aux = csv_to_list_dict(f'src/{me_file_path}')[ 0 ]
+    except FileNotFoundError:
+        me_aux = csv_to_list_dict(me_file_path)[ 0 ]
 
     me = {
         'date': get_date()
@@ -68,8 +72,12 @@ def get_me_data(src='') -> dict:
 
     return transform_for_html_list(me)
 
-def get_about_me_data(src='') -> dict:
-    about_me = csv_to_list_dict( f'{src}data_vault/about_me.csv' )[ 0 ]
+def get_about_me_data() -> dict:
+    about_me_file_path = 'data_vault/about_me.csv'
+    try:
+        about_me = csv_to_list_dict(f'src/{about_me_file_path}')[ 0 ]
+    except FileNotFoundError:
+        about_me = csv_to_list_dict(about_me_file_path)[ 0 ]
 
     return transform_for_html_list(about_me)
 
