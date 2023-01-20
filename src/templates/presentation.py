@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from src.libs.csv import csv_to_list_dict
+from libs.csv import csv_to_list_dict
 
 
 def get_date() -> str:

@@ -1,10 +1,10 @@
 from flask import Flask, render_template  # , send_file
 
-from src.templates.education import get_institutions_data
-from src.templates.experience import get_jobs, get_references
-from src.templates.languages import get_languages_data
-from src.templates.presentation import get_about_me_data, get_date, get_ide_data, get_me_data
-from src.templates.skills import get_skills_data
+from templates.education import get_institutions_data
+from templates.experience import get_jobs, get_references
+from templates.languages import get_languages_data
+from templates.presentation import get_about_me_data, get_date, get_ide_data, get_me_data
+from templates.skills import get_skills_data
 
 app = Flask(__name__)
 

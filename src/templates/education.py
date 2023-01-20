@@ -1,6 +1,6 @@
 import json
 
-from src.libs.csv import csv_to_list_dict
+from libs.csv import csv_to_list_dict
 
 
 def get_institutions_data():

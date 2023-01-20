@@ -1,6 +1,6 @@
 from json import dumps
 
-from src.libs.xlsx import xlsx_to_dict
+from libs.xlsx import xlsx_to_dict
 
 
 def get_skills_data():

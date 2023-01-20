@@ -2,7 +2,7 @@ from datetime import datetime
 
 from flask import Markup
 
-from src.libs.csv import csv_to_list_dict
+from libs.csv import csv_to_list_dict
 
 
 def get_jobs():
